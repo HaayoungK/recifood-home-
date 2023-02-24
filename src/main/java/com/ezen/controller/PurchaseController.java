@@ -63,6 +63,45 @@ public class PurchaseController {
         }
     }
 
+    @GetMapping("/cartPurchase")
+    public String cartPurchaseView(HttpSession session, Model model,
+                                   @RequestParam("cart_seq") Long cart_seq,
+                                   @RequestParam("funding_seq") Long funding_seq,
+                                   @RequestParam("quantity") int quantity) {
+        System.out.println("cart_seq"+cart_seq);
+        System.out.println("funding_seq"+funding_seq);
+        System.out.println("quantity"+quantity);
+
+        Member loginMember = (Member) session.getAttribute("loginMember");
+
+        if(loginMember == null) {
+            return "sign/login";
+        } else {
+
+            Map<String, String> addrMap = new HashMap<>();
+            String[] addressArr = null;
+
+            Funding funding = new Funding();
+            funding.setFunding_seq(funding_seq);
+            Funding findFunding = fundingService.getFunding(funding);
+            Member findMember = memberService.getMember(loginMember);
+            addressArr = findMember.getAddress().split(",");
+
+            addrMap.put("addr1", addressArr[0]);
+            addrMap.put("addr2", addressArr[1]);
+            addrMap.put("addr3", addressArr[2]);
+
+            model.addAttribute("funding", findFunding);
+            model.addAttribute("cart_seq", cart_seq);
+            model.addAttribute("quantity", quantity);
+            model.addAttribute("member", findMember);
+            model.addAttribute("address", addrMap);
+
+            return "purchase/insertPurchase";
+        }
+    }
+
+    /*
     @PostMapping("/cartPurchase") // 장바구니 결제
     public ModelAndView cartPurchase(@RequestBody Map<String, String> map, HttpSession session, ModelAndView modelAndView) {
 
@@ -85,14 +124,14 @@ public class PurchaseController {
 
         modelAndView.addObject("member", findMember);
         modelAndView.addObject("address", addrMap);
-        modelAndView.addObject("finding", findFunding);
+        modelAndView.addObject("funding", findFunding);
         modelAndView.addObject("cart_seq", map.get("cart_seq"));
         modelAndView.addObject("quantity", Integer.valueOf(map.get("quantity")));
         modelAndView.setViewName("purchase/insertPurchase");
 
         return modelAndView;
     }
-
+*/
     @PostMapping("/insertPurchase")
     public @ResponseBody void insertPurchase(@RequestBody Map<String, String> map, Purchase purchase) {
         Funding funding = new Funding();
