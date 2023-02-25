@@ -1,7 +1,7 @@
 package com.ezen.service;
 
 import com.ezen.entity.Board;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import org.springframework.data.domain.Page;
 
 public interface BoardService {

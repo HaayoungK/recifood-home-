@@ -1,6 +1,6 @@
 package com.ezen.controller;
 
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import com.ezen.entity.*;
 import com.ezen.service.CartService;
 import com.ezen.service.FundingService;
@@ -12,12 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -68,9 +65,6 @@ public class PurchaseController {
                                    @RequestParam("cart_seq") Long cart_seq,
                                    @RequestParam("funding_seq") Long funding_seq,
                                    @RequestParam("quantity") int quantity) {
-        System.out.println("cart_seq"+cart_seq);
-        System.out.println("funding_seq"+funding_seq);
-        System.out.println("quantity"+quantity);
 
         Member loginMember = (Member) session.getAttribute("loginMember");
 
@@ -101,39 +95,9 @@ public class PurchaseController {
         }
     }
 
-    /*
-    @PostMapping("/cartPurchase") // 장바구니 결제
-    public ModelAndView cartPurchase(@RequestBody Map<String, String> map, HttpSession session, ModelAndView modelAndView) {
-
-        Member loginMember = (Member) session.getAttribute("loginMember");
-
-        Map<String, String> addrMap = new HashMap<>();
-        String[] addressArr = null;
-
-        Member findMember = memberService.getMember(loginMember);
-        addressArr = findMember.getAddress().split(",");
-
-        addrMap.put("addr1", addressArr[0]);
-        addrMap.put("addr2", addressArr[1]);
-        addrMap.put("addr3", addressArr[2]);
-
-        Funding funding = new Funding();
-        funding.setFunding_seq(Long.valueOf(map.get("funding_seq")));
-        Funding findFunding = fundingService.getFunding(funding);
-        System.out.println("찾은 펀딩: " + findFunding);
-
-        modelAndView.addObject("member", findMember);
-        modelAndView.addObject("address", addrMap);
-        modelAndView.addObject("funding", findFunding);
-        modelAndView.addObject("cart_seq", map.get("cart_seq"));
-        modelAndView.addObject("quantity", Integer.valueOf(map.get("quantity")));
-        modelAndView.setViewName("purchase/insertPurchase");
-
-        return modelAndView;
-    }
-*/
     @PostMapping("/insertPurchase")
     public @ResponseBody void insertPurchase(@RequestBody Map<String, String> map, Purchase purchase) {
+
         Funding funding = new Funding();
         funding.setFunding_seq(Long.valueOf(map.get("funding_seq")));
         Member member = new Member();

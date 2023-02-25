@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 public class RecifoodApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(RecifoodApplication.class, args);
 	}
 

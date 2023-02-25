@@ -3,7 +3,7 @@ package com.ezen.service;
 import org.springframework.data.domain.Page;
 
 import com.ezen.entity.Food;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 
 public interface FoodService {
 	void insertFood(Food food);

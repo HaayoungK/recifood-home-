@@ -2,7 +2,7 @@ package com.ezen.service;
 
 import com.ezen.entity.Board;
 import com.ezen.entity.QBoard;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import com.ezen.persistence.BoardRepository;
 import com.querydsl.core.BooleanBuilder;
 import lombok.extern.log4j.Log4j2;

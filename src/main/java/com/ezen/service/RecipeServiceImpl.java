@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.ezen.entity.QRecipe;
 import com.ezen.entity.Recipe;
 import com.ezen.entity.RecipeProcedure;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import com.ezen.persistence.RecipeProcedureRepository;
 import com.ezen.persistence.RecipeRepository;
 import com.querydsl.core.BooleanBuilder;

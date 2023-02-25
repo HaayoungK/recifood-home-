@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import com.ezen.dto.Email;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import com.ezen.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

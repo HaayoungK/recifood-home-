@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.ezen.entity.Role.ADMIN;
-
 @Controller
 @Log4j2
 public class BoardController {
@@ -28,10 +26,7 @@ public class BoardController {
     @Autowired
     MemberService memberService;
 
-//    @GetMapping("/boardList")
-//    public String boardList() {
-//        return "board/boardList";
-//    }
+
     @GetMapping("/board")
     public String getBoard(Board board, Model model) {
         List<BoardReply> boardReplyList =boardReplyService.getBoardReplyList(board);

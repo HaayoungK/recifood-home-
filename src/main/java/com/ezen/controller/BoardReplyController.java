@@ -3,13 +3,10 @@ package com.ezen.controller;
 import com.ezen.entity.Board;
 import com.ezen.entity.BoardReply;
 import com.ezen.entity.Member;
-import com.ezen.entity.Recipe;
 import com.ezen.service.BoardReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController

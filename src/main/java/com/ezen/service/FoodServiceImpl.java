@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.entity.Food;
 import com.ezen.entity.QFood;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import com.ezen.persistence.FoodRepository;
 import com.querydsl.core.BooleanBuilder;
 

@@ -28,17 +28,8 @@ public class BoardReply {
     @JoinColumn(name="username", nullable=false, updatable=false)
     private Member member; // 댓글 작성자
 
-    public void setMember(Member member) {
-        this.member = member;
-        member.getBoardReplyList().add(this);
-    }
-
     @ManyToOne
     @JoinColumn(name="boardSeq", nullable = false, updatable = false)
     private Board board; // 댓글 작성할 게시글
 
-    public void setBoard(Board board) {
-        this.board = board;
-        board.getBoardReplyList().add(this);
-    }
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.entity.Funding;
 import com.ezen.entity.QFunding;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import com.ezen.persistence.FundingRepository;
 import com.querydsl.core.BooleanBuilder;
 

@@ -1,7 +1,5 @@
 package com.ezen.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.entity.Food;
 import com.ezen.entity.Member;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import com.ezen.service.FoodService;
 
 import jakarta.servlet.http.HttpSession;

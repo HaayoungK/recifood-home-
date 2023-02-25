@@ -129,31 +129,12 @@ $(document).ready(function() {
 $(".fa-plus").on("click", function(){
 	let quantity = $(this).parent("td").find("input").val();
 	$(this).parent("td").find("input").val(++quantity);
-	
-	/*
-	var thisRow = $(this).closest('tr');
-	var price = removeComma(thisRow.find('td:eq(3)').find('p:eq(0)').text());
-	var sum = quantity * price
-	console.log("price=", price)
-	console.log("quantity=", quantity)
-	console.log("sum=", sum);
-	thisRow.find('td:eq(5)').find('input').val(sum);
-	*/
+
 });
 $(".fa-minus").on("click", function(){
 	let quantity = $(this).parent("td").find("input").val();
 	if(quantity > 1){
-		$(this).parent("td").find("input").val(--quantity);	
-		
-		/*
-		var thisRow = $(this).closest('tr');
-		var price = removeComma(thisRow.find('td:eq(3)').find('p:eq(0)').text());
-		var sum = quantity * price
-		console.log("price=", price)
-		console.log("quantity=", quantity)
-		console.log("sum=", sum);
-		thisRow.find('td:eq(5)').find('input').val(sum);
-		*/
+		$(this).parent("td").find("input").val(--quantity);
 	}
 });
 
@@ -185,15 +166,9 @@ function DeleteClick() {
 // 주문하기
 function purchase_click(element) {
     var tr = element.closest('tr');
-    //var parent = button.parentNode;
     var cart_seq = $(tr).find('td:eq(0)').find('input').val();
     var funding_seq = $(tr).find('td:eq(1)').find('input').val();
     var quantity = $(tr).find('td:eq(4)').find('p').text();
-    /*
-    console.log("cart_seq=", cart_seq);
-    console.log("funding_seq=", funding_seq);
-    console.log("quantity=", quantity);
-    */
 
     //form
     var theForm = document.createElement('form');      // form생성
@@ -224,118 +199,6 @@ function purchase_click(element) {
 
     theForm.submit();
 }
-/*
-$(document).ready(function() {
-
-	$('#purchase').on('click', function() {
-		 // 해당 줄의 정보 가져오기
-		 var thisRow = $(this).closest('tr');
-		 var cart_seq = thisRow.find('td:eq(0)').find('input').val();
-		 var funding_seq = thisRow.find('td:eq(1)').find('input').val();
-		 var quantity = thisRow.find('td:eq(4)').find('p:eq(0)').find('input').val();
-		 
-		 $.ajax({
-			type: 'POST',
-			url: '/cartPurchase',
-			contentType: 'application/json',
-			async: false,
-			data: JSON.stringify({
-				'cart_seq' : cart_seq,
-				'funding_seq' : funding_seq,
-				'quantity' : quantity,
-			}),
-			success: function(data) {
-                console.log("정보 불러오기 성공");
-			}, 
-			error : function() {
-				console.log("정보 불러오기 실패");
-			}
-		 });
-	  });
-});
-*/
-function insertPurchase() {
-	window.location.replace("/cartPurchase");
-}
-
-/*
-function removeComma(price) {
-	var result = price.substring(0, price.length-2);
-	
-	return result.replace(/,/g, '');
-}
-
-function addComma(sum) {
-	return sum.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
-}
-
-function inputNumberFormat(obj) {
-	obj.value = addComma(addComma(obj.value));
-}
-
-
-$("#sum").on('keyup', function(event) {
-	addComma($(this).val().replace(/[^0-9]/g,''));
-});
-*/
-
-// 총금액 변경
-/*
-fn_totalMoney = function() {
-	$(".remove-pr price, .c-input-text qty text").each(function(index) {
-		// 콤마제거
-		$(".remove-pr total").each(function(idx) {
-			$(this).val($(this).val().replace(/, /gi, ''));
-		});
-		var price = $(".remove-pr price").eq(index).val();
-		var quantity = $(".c-input-text qty text").eq(index).val();
-		
-		// 형변환
-		price = price*1;
-		quantity = quantity*1;
-		
-		$(".c-input-text qty text").eq(index).val(price*quantity);
-		var total = $(".c-input-text qty text").eq(index).val();
-		
-		// 콤마생성
-		$(".c-input-text qty text").each(function(idx) {
-			$(this).val($(this).val().toString().replace(/\B(?=(\d{3}+)(?!\d))/g, ","));
-		});
-	});
-};
-*/
-
-/*
-// 전체선택, 해제
-$(document).on("click", "input:checkbox[name=checkbox]", function(e) {
-	
-	var chks = document.getElementsByName("checkbox");
-	var chksChecked = 0;
-	
-	for(var i=0; i<chks.length; i++) {
-		var checkbox = chks[i];
-		
-		if(checkbox.checked) {
-			chksChecked++;
-		}
-	}
-	
-	if(chks.length == chksChecked){
-		$("#checkAll").prop("checked", true);
-	}else{
-		$("#checkAll").prop("checked",false);
-	}
-	
-});
-
-function checkAll() {
-	if ($("#checkAll").is(':checked')) {
-		$("input[name=checkbox]").prop("checked", true);
-	} else {
-		$("input[name=checkbox]").prop("checked", false);
-	}
-}
-*/
 </script>
 </th:block>
 </html>

@@ -45,11 +45,6 @@ public class Board {
 	@JoinColumn(name="username", nullable=false, updatable=false)
 	private Member member;
 
-	public void setMember(Member member) {
-		this.member = member;
-		member.getBoardList().add(this);
-	}
-
 	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<BoardReply> boardReplyList = new ArrayList<BoardReply>();
 

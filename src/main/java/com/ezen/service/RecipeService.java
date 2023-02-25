@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 
 import com.ezen.entity.Recipe;
 import com.ezen.entity.RecipeProcedure;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 
 public interface RecipeService {
 	void insertRecipe(Recipe recipe, List<RecipeProcedure> listProcedure);

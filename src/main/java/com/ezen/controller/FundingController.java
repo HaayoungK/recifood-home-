@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ezen.entity.Funding;
 import com.ezen.entity.Member;
 import com.ezen.entity.Recipe;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import com.ezen.service.FundingService;
 
 import jakarta.servlet.http.Cookie;

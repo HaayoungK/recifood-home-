@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import com.ezen.dto.Email;
 import com.ezen.entity.QMember;
-import com.ezen.entity.Search;
+import com.ezen.dto.Search;
 import com.querydsl.core.BooleanBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 

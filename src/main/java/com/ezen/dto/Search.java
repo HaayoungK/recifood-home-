@@ -1,4 +1,4 @@
-package com.ezen.entity;
+package com.ezen.dto;
 
 import lombok.Data;
 
