@@ -168,7 +168,7 @@ function purchase_click(element) {
     var tr = element.closest('tr');
     var cart_seq = $(tr).find('td:eq(0)').find('input').val();
     var funding_seq = $(tr).find('td:eq(1)').find('input').val();
-    var quantity = $(tr).find('td:eq(4)').find('p').text();
+    var quantity = $(tr).find('td:eq(4)').find('input').val();
 
     //form
     var theForm = document.createElement('form');      // form생성
